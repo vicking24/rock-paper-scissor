@@ -1,11 +1,13 @@
 import java.util.Scanner;
 
 class rps {
+    static Scanner sc=new Scanner(System.in);
+    static boolean again=true;
     public static void main (String[]args){
-        Scanner sc=new Scanner(System.in);
+
         int h=0;
         int c=0;
-        boolean again=true;
+        
         int win=0, tie=0, lose=0;
         boolean type=true;
 
@@ -57,16 +59,8 @@ class rps {
                 System.out.println ("It's a tie. Battle me again!");
                 tie++;
             } 
-
-            System.out.println ("Do you want to play again? [y or n]");
-            String yn=sc.next();
-            if (yn.equals ("y")){
-                again=true;
-            } else {
-                again=false;
-                System.out.println ("");
-                System.out.println ("Nice playing with you!");
-            }
+            playagain();
+            
             type=true; 
         }
         System.out.println ("");
@@ -75,7 +69,20 @@ class rps {
         System.out.println ("Ties: "+tie);
         System.out.println ("Losses: "+lose);
         System.out.println ("");
-        
+
+    }
+    
+    public static boolean playagain () {
+        System.out.println ("Do you want to play again? [y or n]");
+        String yn=sc.next();
+        if (yn.equals ("y")){
+            return again=true;
+        } else {
+            System.out.println ("");
+            System.out.println ("Nice playing with you!");
+            return again=false;
+            
+        }
 
     }
 
